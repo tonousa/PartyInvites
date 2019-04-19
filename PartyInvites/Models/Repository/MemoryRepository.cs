@@ -7,14 +7,16 @@ namespace PartyInvites.Models.Repository
 {
     public class MemoryRepository : IRepository
     {
-        void IRepository.AddResponse(GuestResponse response)
+        private List<GuestResponse> responses = new List<GuestResponse>();
+
+        public void AddResponse(GuestResponse response)
         {
-            throw new NotImplementedException();
+            responses.Add(response);
         }
 
-        IEnumerable<GuestResponse> IRepository.GetAllResponses()
+        public IEnumerable<GuestResponse> GetAllResponses()
         {
-            throw new NotImplementedException();
+            return responses;
         }
     }
 }
