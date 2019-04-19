@@ -82,10 +82,11 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Models\GuestResponse.cs" />
+    <Compile Include="Models\Repository\IRepository.cs" />
+    <Compile Include="Models\Repository\MemoryRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Models\Repository\" />
     <Folder Include="Pages\" />
     <Folder Include="Presenters\Results\" />
   </ItemGroup>
