@@ -75,10 +75,19 @@
     </None>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Content\PartyStyles.css" />
+    <Content Include="Content\seeyouthere.html" />
+    <Content Include="Content\sorryyoucantcome.html" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Models\GuestResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Models\Repository\" />
+    <Folder Include="Pages\" />
+    <Folder Include="Presenters\Results\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
