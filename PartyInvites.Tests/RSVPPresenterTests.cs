@@ -48,5 +48,37 @@ namespace PartyInvites.Tests
             Assert.AreEqual(repo.GetAllResponses().Last().Name, "TEST");
             Assert.AreEqual(repo.GetAllResponses().Last().WillAttend, true);
         }
+
+        [TestMethod]
+        public void Handles_WillAttend_Values()
+        {
+            // Arrange
+            IRepository repo = new MockRepository();
+            IPresenter<GuestResponse> target = new RSVPPresenter { repository = repo };
+            bool?[] values = { true, false };
+
+            // Act and Assert
+            foreach (bool? testValue in values)
+            {
+                GuestResponse dataObject =
+                    new GuestResponse { Name = "TEST", WillAttend = testValue };
+                IResult result = target.GetResult(dataObject);
+                Assert.IsInstanceOfType(result, typeof(RedirectResult));
+            }
+        }
+
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentNullException))]
+        public void Handles_WillAttend_Null_Values()
+        {
+            // Arrange
+            IRepository repo = new MockRepository();
+            IPresenter<GuestResponse> target = new RSVPPresenter { repository = repo };
+
+            // Act
+            GuestResponse dataObject =
+                new GuestResponse { Name = "TEST", WillAttend = null };
+            IResult result = target.GetResult(dataObject);
+        }
     }
 }
